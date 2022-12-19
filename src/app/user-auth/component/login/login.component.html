@@ -1,0 +1,76 @@
+<section class="vh-100">  
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid"
+          alt="Sample image"
+        />
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="LoginForm" (ngSubmit)="Login(); LoginForm.reset()">
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" >Email address</label>
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              placeholder="Enter a valid email address"
+              [ngClass]="{'is-invalid': submitted && f.email.errors}"
+              formControlName="email"
+            />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <small *ngIf="f.email.errors?.required">Please Enter Email </small>
+              <small *ngIf="f.email.errors?.email">Please Enter Valid Email </small>
+            </div>
+          </div>
+          
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control form-control-lg"
+              placeholder="Enter password"
+              [ngClass]="{'is-invalid': submitted && f.password.errors}"
+              formControlName="password"
+            />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <small *ngIf="f.password.errors?.required">Please Enter Password </small>
+              <small *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</small>
+              <small *ngIf="f.password.errors?.maxlength">Password maximum 12 characters</small>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a
+              [routerLink]="['/auth/forgot']"
+              routerLinkActive="router-link-active"
+              class="text-body"
+              >Forgot password?</a
+            >
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button  type="submit"
+             mat-flat-button color="primary" >Login </button>
+             
+            <p class="small fw-bold mt-2 pt-1 mb-0">
+              Don't have an account?
+              <a
+                [routerLink]="['/auth/register']"
+                routerLinkActive="router-link-active"
+                class="link-danger"
+                >Register</a
+              >
+            </p>
+          </div>
+        </form>
+
+       
+      </div>
+    </div>
+  </div>
+  

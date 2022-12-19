@@ -1,0 +1,111 @@
+<section
+  class="vh-100 bg-image"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+  "
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-center mb-5">{{ title | uppercase }}</h2>
+
+              <form
+                [formGroup]="RegisterForm"
+                (ngSubmit)="register(); RegisterForm.reset()"
+              >
+                <div class="form-outline mb-4">
+                  <label class="form-label">Your Name</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    [ngClass]="{
+                      'is-invalid':
+                        submitted && f.username.errors 
+                    }"
+                    formControlName="username"
+                  />
+                  <div
+                    *ngIf="submitted && f.username.errors"
+                    class="invalid-feedback"
+                  >
+                    <small *ngIf="f.username.errors?.required"
+                      >Please Enter Username</small
+                    >
+                    <small *ngIf="f.username.errors?.minlength"
+                      >Username Must be at Least 3 characters</small
+                    >
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Your Email</label>
+                  <input
+                    type="email"
+                    class="form-control form-control-lg"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                    formControlName="email"
+                  />
+                  <div
+                    *ngIf="submitted && f.email.errors"
+                    class="invalid-feedback"
+                  >
+                    <small *ngIf="f.email.errors?.required"
+                      >Please Enter Email</small
+                    >
+                    <small *ngIf="f.email.errors?.email"
+                      >Please Enter Valid Emial Address</small
+                    >
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control form-control-lg"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                    formControlName="password"
+                  />
+                  <div
+                    *ngIf="submitted && f.password.errors"
+                    class="invalid-feedback"
+                  >
+                    <small *ngIf="f.password.errors?.required"
+                      >Please Enter Password</small
+                    >
+                    <small *ngIf="f.password.errors?.minlength"
+                      >Password must be at least 6 characters</small
+                    >
+                    <small *ngIf="f.password.errors?.maxlength"
+                      >Password maximum 12 characters
+                    </small>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button
+                    type="submit"
+                    mat-flat-button color="accent"
+                  >
+                    Register
+                  </button>
+                </div>
+                <p class="text-center text-muted mt-5 mb-0">
+                  Have already an account?
+                  <a
+                    [routerLink]="['/']"
+                    routerLinkActive="router-link-active"
+                    class="fw-bold text-body"
+                    ><u>Login here</u></a
+                  >
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
