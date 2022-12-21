@@ -1,0 +1,28 @@
+<form
+        [formGroup]="TutorialForm"
+        class="example-form"
+        (ngSubmit)="addTutorial(); TutorialForm.reset()"
+      >
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Ex. pat@example.com"
+            formControlName="name"
+          />
+          <mat-error *ngIf="f.name.errors?.required">Please Add Name</mat-error> </mat-form-field
+        ><br />
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>URL</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="http://example.com"
+            formControlName="url"
+          />
+          <mat-error *ngIf=" f.url.errors?.required">Please Add Url</mat-error> </mat-form-field
+        ><br />
+        <button [disabled]="TutorialForm.invalid" type="submit" mat-raised-button color="primary">ADD</button>
+      </form>

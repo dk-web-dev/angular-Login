@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button
+            type="button"
+            class="btn btn-danger btn-number"
+            data-type="minus"
+            (click)="decrement()"
+          >
+          <i class="fa fa-minus" aria-hidden="true"></i>
+          </button>
+        </span>
+        <input
+          type="text"
+          class="form-control input-number"
+          value="{{count$ | async}}"
+          min="1"
+          max="100"
+        />
+        <span class="input-group-btn">
+          <button
+            type="button"
+            class=" btn btn-success btn-number"
+            data-type="plus"
+            (click)="increment()"
+          >
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </span>
+      </div>
+      
+    </div>
+    <div class="col-lg-2">
+        <span class="input-group-btn">
+            <button
+              type="button"
+              mat-raised-button 
+              color="primary"
+              data-type="reset"
+              (click)="reset()"
+            >
+            <mat-icon>autorenew</mat-icon>
+            </button>
+          </span>
+    </div>
+  </div>
+</div>

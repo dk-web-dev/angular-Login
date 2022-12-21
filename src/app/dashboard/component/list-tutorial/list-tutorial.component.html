@@ -1,0 +1,20 @@
+<table class="table table-striped" *ngIf="tutorials">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Tutorial</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tutorial of tutorials | async; let i = index">
+        <td>{{i+1}}</td>
+        <td>
+          <a [href]="tutorial.url" target="_blank">{{ tutorial.name }}</a>
+        </td>
+        <td>
+           <button mat-raised-button color="warn"(click)="deleteTutorial(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

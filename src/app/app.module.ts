@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 //interceptor
 import { AuthInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
 import { MaterialModule } from './material/material.module';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 //import user-auth module
 import { UserAuthModule } from './user-auth/user-auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -21,7 +21,10 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NopageComponent } from './component/nopage/nopage.component';
 
-
+//store
+import { StoreModule } from '@ngrx/store';
+import { TutorialReducer } from './store/reducers/tutorial.reducer';
+import { counterReducer } from './store/reducers/counter.reducer';
 @NgModule({
   declarations: [AppComponent, NopageComponent],
   imports: [
@@ -35,7 +38,11 @@ import { NopageComponent } from './component/nopage/nopage.component';
     MatNativeDateModule,
     UserAuthModule,
     DashboardModule,
-    SharedModule   //<============================ IMPORT THE share module
+    SharedModule,
+    StoreModule.forRoot({
+      tutorialData: TutorialReducer,
+      counterData: counterReducer 
+    }),
   ],
   providers: [
     {
