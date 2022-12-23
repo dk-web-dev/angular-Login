@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
 import { Tutorial } from 'src/app/store/models/tutorial.model';
-import * as TutorialActions from '../../../store/actions/tutorial.actions'
+import * as TutorialActions from '../../../../../store/actions/tutorial.actions'
 
 @Component({
   selector: 'app-create-tutorial',

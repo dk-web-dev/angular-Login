@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app.state';
 import { Tutorial } from 'src/app/store/models/tutorial.model';
-import * as TutorialActions from '../../../store/actions/tutorial.actions'
+import * as TutorialActions from '../../../../../store/actions/tutorial.actions'
 
 @Component({
   selector: 'app-list-tutorial',

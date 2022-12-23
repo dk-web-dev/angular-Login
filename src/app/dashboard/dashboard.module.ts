@@ -13,9 +13,13 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MainComponent } from './component/main/main.component';
 import { DarkthemeComponent } from './component/darktheme/darktheme.component';
 import { MainTutorialComponent } from './component/main-tutorial/main-tutorial.component';
-import { CreateTutorialComponent } from './component/create-tutorial/create-tutorial.component';
-import { ListTutorialComponent } from './component/list-tutorial/list-tutorial.component';
+import { CreateTutorialComponent } from './component/main-tutorial/component/create-tutorial/create-tutorial.component';
+import { ListTutorialComponent } from './component/main-tutorial/component/list-tutorial/list-tutorial.component';
 import { CounterExampleComponent } from './component/counter-example/counter-example.component';
+import { UserlistComponent } from './component/userlist/userlist.component';
+import { DdComponent } from './component/dd/dd.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { UsersComponent } from './component/users/users.component';
 
 
 @NgModule({
@@ -26,6 +30,10 @@ import { CounterExampleComponent } from './component/counter-example/counter-exa
     CreateTutorialComponent,
     ListTutorialComponent,
     CounterExampleComponent,
+    UserlistComponent,
+    DdComponent,
+    NavbarComponent,
+    UsersComponent,
   ],
   imports: [
     CommonModule,

@@ -23,6 +23,8 @@
     "@angular/router": "^14.2.0",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@ngrx/effects": "^14.2.0",
+    "@ngrx/entity": "^14.2.0",
+    "@ngrx/schematics": "^14.2.0",
     "@ngrx/store": "^14.2.0",
     "@ngrx/store-devtools": "^14.2.0",
     "@popperjs/core": "^2.10.2",
@@ -31,6 +33,7 @@
     "ngx-pagination": "^6.0.3",
     "ngx-toastr": "^15.2.2",
     "rxjs": "~7.5.0",
+    "rxjs-operators": "^1.1.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

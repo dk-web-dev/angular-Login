@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<h4>Angular + ngrx Fetch UserList using State Management</h4>
+
+<div class="container table-responsive py-5">
+  <table class="table table-bordered table-hover" *ngIf="users">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">userName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ u.username }}</td>
+        <td>{{ u.email }}</td>
+        <td>
+          <!-- Call to action buttons -->
+          <ul class="list-inline m-0">
+            <li class="list-inline-item">
+              <button
+                mat-raised-button
+                color="accent"
+                type="button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Edit"
+              >
+                Edit
+              </button>
+            </li>
+            <li class="list-inline-item">
+              <button
+                mat-raised-button
+                color="warn"
+                type="button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Delete"
+              >
+                Delete
+              </button>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

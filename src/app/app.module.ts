@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 //interceptor
 import { AuthInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
+
 import { MaterialModule } from './material/material.module';
 import { MatNativeDateModule } from '@angular/material/core';
-//import user-auth module
+
+//import own user-auth module
 import { UserAuthModule } from './user-auth/user-auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 
@@ -22,15 +24,26 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NopageComponent } from './component/nopage/nopage.component';
 
 //store
-import { StoreModule } from '@ngrx/store';
-import { TutorialReducer } from './store/reducers/tutorial.reducer';
-import { counterReducer } from './store/reducers/counter.reducer';
+import { StoreModule } from '@ngrx/store';                         // import store
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';        // import store devtools
+import { TutorialReducer } from './store/reducers/tutorial.reducer'; // tutorial-reducer
+import { counterReducer } from './store/reducers/counter.reducer';  // counter-reducer
+import { UserReducer } from './store/reducers/user.reducer';   // user-reducer
+import { LoggedInUser } from './store/reducers/userlogin.reducers'; // loggedUdser reducers
+
+//effect
+import { EffectsModule } from '@ngrx/effects';           // import effectmodule
+import { UserEffects } from './store/effects/user.effects'; // import user-effect module
+import { UserLoginEffects } from './store/effects/userlogin.effects';
+
+import { StoreModules } from './store/store.module';  //<== import store.module
+
 @NgModule({
   declarations: [AppComponent, NopageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),  //<==== ToastrModule added
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
@@ -39,10 +52,7 @@ import { counterReducer } from './store/reducers/counter.reducer';
     UserAuthModule,
     DashboardModule,
     SharedModule,
-    StoreModule.forRoot({
-      tutorialData: TutorialReducer,
-      counterData: counterReducer 
-    }),
+    StoreModules  //<========== register store.module file
   ],
   providers: [
     {

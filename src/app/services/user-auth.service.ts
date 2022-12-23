@@ -6,11 +6,13 @@ import {  Observable} from 'rxjs';
 import { Router } from '@angular/router';
 
 import { IUserList } from '../interface/user-auth/userList';
+import { IUser } from '../store/models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserAuthService {
+ 
   apiURL = environment.API_URL;
 
   constructor(private http: HttpClient,private router:Router) { }
@@ -88,7 +90,19 @@ export class UserAuthService {
     }
   }
 
-  
+ 
+  /**
+   * @Name fetch_user_list
+   * @Description service used for fetch user using Angular + NgRx state management + @ngrx/effects
+   * @Author dharmesh
+   */
+  getAll():Observable<any>{
+    return this.http.get<any>(`${this.apiURL}/users`);
+  }
 
+  log(user:any):Observable<any>{
+    console.log("login user",user);
+    return this.http.post<any>(`${this.apiURL}/login`,user);
+ }
 
 }

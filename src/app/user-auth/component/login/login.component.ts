@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 import { Ilogin, ILoginUser } from 'src/app/interface/user-auth/user-auth';
 
+import { Store } from '@ngrx/store';
+import  * as loginAction from "../../../store/actions/userlogin.actions";
+import { AppLoggedUser } from 'src/app/app.state';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,7 +28,8 @@ export class LoginComponent implements OnInit {
     private toaster: ToastrService,
     private fb: FormBuilder,
     private userAuth: UserAuthService,
-    private router: Router
+    private router: Router,
+    private store:Store<AppLoggedUser>
   ) {}
 
   ngOnInit(): void {}
@@ -53,13 +58,22 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    //  this.store.dispatch(new loginAction.LogIn(this.LoginForm.value)); // action dispatch
+    //  this.submitted=false;
+    
     console.log('login', this.LoginForm.value);
     this.userAuth.loginUser(this.LoginForm.value as Ilogin).subscribe({
       next: (response) => {
         localStorage.setItem('access_token', '123456'); //set token
         this.loginUser = response;
         localStorage.setItem('username', this.loginUser.username); //set username
-
+         
+        /**
+         * @Name action dispatch to store loggedUser Detail
+         */
+        this.store.dispatch(new loginAction.LogIn(this.loginUser)); // action dispatch
+        
+        //toaster
         this.toaster.success('login success', 'Admin', {
           progressBar: true,
           closeButton: true,

@@ -13,19 +13,19 @@ export class CounterExampleComponent implements OnInit {
   constructor(private store:Store<{counterData:number}>) { }
 
   ngOnInit(): void {
-    this.count$ = this.store.select('counterData');
+    this.count$ = this.store.select('counterData');  // access store
   }
 
   increment(){
-     this.store.dispatch(counterAction.INCREMENT());
+     this.store.dispatch(counterAction.INCREMENT()); // dispatch INCREMENT action
   }
 
   decrement(){
-     this.store.dispatch(counterAction.DECREMENT());
+     this.store.dispatch(counterAction.DECREMENT());  // dispatch DECREMENT action
   }
 
   reset(){
-    this.store.dispatch(counterAction.RESET());
+    this.store.dispatch(counterAction.RESET());   // dispatch RESET action
   }
 
 }
