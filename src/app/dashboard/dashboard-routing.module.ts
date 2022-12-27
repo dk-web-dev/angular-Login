@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CounterExampleComponent } from './component/counter-example/counter-example.component';
+import { ImageListComponent } from './component/image-list/image-list.component';
 import { MainTutorialComponent } from './component/main-tutorial/main-tutorial.component';
 import { MainComponent } from './component/main/main.component';
 import { UserlistComponent } from './component/userlist/userlist.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'tutorials',component:MainTutorialComponent},
   {path:'counter',component:CounterExampleComponent},
   {path:'userlist',component:UserlistComponent},
+  {path:'photos',component:ImageListComponent},
   {path:"**",redirectTo: "dashboard"},
 ];
 

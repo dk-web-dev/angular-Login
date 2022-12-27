@@ -20,6 +20,7 @@ import { UserlistComponent } from './component/userlist/userlist.component';
 import { DdComponent } from './component/dd/dd.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { UsersComponent } from './component/users/users.component';
+import { ImageListComponent } from './component/image-list/image-list.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { UsersComponent } from './component/users/users.component';
     DdComponent,
     NavbarComponent,
     UsersComponent,
+    ImageListComponent,
   ],
   imports: [
     CommonModule,

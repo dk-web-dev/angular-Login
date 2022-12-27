@@ -1,0 +1,59 @@
+.img-container-grid{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.smallsquare{
+  max-width:20%;
+  height:auto;
+  flex:0 0 20%;
+  padding-top:20%;
+  display:grid;
+  position:relative;
+}
+
+.h_rectangle{
+  max-width: 40%;
+  flex: 0 0 40%;
+  padding-top:20%;
+  position:relative;
+}
+
+.bigsquare{
+  max-width:40%;
+  height:auto;
+  flex:0 0 40%;
+  padding-top:40%;
+  display:grid;
+  position:relative;
+}
+.bigsquare_blank{
+  max-width:40%;
+  height:auto;
+  flex:0 0 40%;
+  display:flex;
+  flex-wrap: wrap;
+}
+.inner_square{
+  max-width:50%;
+  flex: 0 0 50%;
+  height:50%;
+  position:relative;
+}
+.v_rectangle{
+  max-width: 20%;
+  flex: 0 0 20%;
+  padding-top:40%;
+  position:relative;
+}
+
+.img-grid-c{
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  position:absolute;
+  object-fit:cover;
+  object-position:center;
+  padding:2.5px;
+}
